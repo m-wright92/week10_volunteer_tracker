@@ -29,3 +29,13 @@ post '/projects' do
   project.save
   redirect to '/projects'
 end
+
+get '/projects/:id' do
+  @project = Project.find(params[:id].to_i)
+  @volunteers = Volunteer.all
+  if @project
+    erb :project
+  else
+    erb :no_project
+  end
+end

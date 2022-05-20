@@ -1,0 +1,26 @@
+<h1><%= @project.title %><h1>
+
+<h3>A list of all volunteers working on this project:</h3>
+
+<% if @project.volunteers %>
+  <ul>
+    <% @project.volunteers.each do |volunteer| %>
+      <li><%= volunteer.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You have not assigned anyone to this project yet</p>
+<% end %>
+
+<h4>Assign a volunteer:</h4>
+  <div class="form-group">
+      <select name="volunteer_name">
+        <% if @volunteers.any? %>
+          <% @volunteers.each do |volunteer| %>
+            <option><%= volunteer.name %></option>
+          <% end %>
+        <% else %>
+          <option disabled>No Volunteers</option>
+        <% end %>
+      </select>
+  </div>
