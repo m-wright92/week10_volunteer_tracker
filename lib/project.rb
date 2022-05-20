@@ -33,4 +33,8 @@ class Project
     id = project.fetch("id").to_i
     Project.new({:title => title, :id => id})
   end
+
+  def volunteers
+   Volunteer.find_by_project(self.id)
+  end
 end
