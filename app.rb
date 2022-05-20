@@ -39,3 +39,24 @@ get '/projects/:id' do
     erb :no_project
   end
 end
+
+get '/volunteers' do
+  @volunteers = Volunteer.all
+  erb :volunteers
+end
+
+get '/volunteers/new' do
+  erb :new_volunteer
+end
+
+post '/volunteers' do
+  name = params[:volunteer_name]
+  volunteer = Volunteer.new({:name => name, :project_id => nil, :id => nil})
+  volunteer.save
+  redirect to '/volunteers'
+end
+
+get '/volunteers/:id' do
+  @volunteer = Volunteer.find(params[:id].to_i)
+  erb :volunteer
+end

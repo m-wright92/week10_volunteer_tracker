@@ -3,7 +3,7 @@
 <% if @projects.any? %>
   <ul>
     <% @projects.each do |project| %>
-      <li><a href="/projects/<% project.id %>"><%= project.title %></a></li>
+      <li><a href="/projects/<%= project.id %>"><%= project.title %></a></li>
     <% end %>
   </ul>
 <% else %>
@@ -11,3 +11,5 @@
 <% end %>
 
 <a href="/projects/new">Add a new Project</a>
+
+<a href="/volunteers">View all volunteers</a>
