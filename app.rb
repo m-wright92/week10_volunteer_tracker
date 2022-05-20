@@ -35,3 +35,22 @@ get '/projects/:id' do
     erb :no_project
   end
 end
+
+get '/projects/:id/edit' do
+  @project = Project.find(params[:id].to_i)
+  erb :edit_project
+end
+
+patch '/projects/:id' do
+  @project = Project.find(params[:id].to_i)
+  @project.update({:title => params[:title].split(/ |\_/).map(&:capitalize).join(" ")})
+  @projects = Project.all
+  erb :projects
+end
+
+delete '/projects/:id' do
+  @project = Project.find(params[:id].to_i)
+  @project.delete
+  @projects = Project.all
+  erb :projects
+end
