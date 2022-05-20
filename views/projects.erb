@@ -10,6 +10,12 @@
   <p>We don't currently have any active projects</p>
 <% end %>
 
-<a href="/projects/new">Add a new Project</a>
+<h1>Add a project</h1>
 
-<a href="/volunteers">View all volunteers</a>
+<form action="/projects" method="post">
+  <div class="form-group">
+    <label for="project_title">Project Title</label>
+    <input name="project_title" placeholder="Enter title here">
+  </div>
+  <button type="submit" class="btn">Create Project</button>
+</form>
