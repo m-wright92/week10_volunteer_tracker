@@ -29,9 +29,13 @@ class Project
 
   def self.find(id)
     project = DB.exec("SELECT * FROM projects WHERE id = #{id};").first
-    title = project.fetch("title")
-    id = project.fetch("id").to_i
-    Project.new({:title => title, :id => id})
+    if project 
+      title = project.fetch("title")
+      id = project.fetch("id").to_i
+      Project.new({:title => title, :id => id})
+    else
+      nil
+    end
   end
 
   def update(attributes)
@@ -44,6 +48,14 @@ class Project
   end
 
   def volunteers
-   Volunteer.find_by_project(self.id)
+    volunteers = []
+    returned_volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = #{@id};")
+    returned_volunteers.each do |volunteer|
+      name = volunteer.fetch("name")
+      project_id = volunteer.fetch("project_id").to_i
+      id = volunteer.fetch("id").to_i
+      volunteers.push(Volunteer.new({:name => name, :project_id => project_id, :id => id}))
+    end
+    volunteers
   end
 end
