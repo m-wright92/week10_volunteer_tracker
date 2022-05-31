@@ -7,9 +7,10 @@ class Project
     @id = attributes.fetch(:id)
   end
 
-  def ==(project_to_compare)
-    self.title == project_to_compare.title
-  end
+  # commented out for bug fix issues)
+  # def ==(project_to_compare)
+  #   self.title == project_to_compare.title
+  # end
 
   def self.all
     returned_projects = DB.exec("SELECT * FROM projects;")

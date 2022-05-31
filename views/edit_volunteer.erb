@@ -1,0 +1,23 @@
+<h1>Edit Project</h1>
+
+<h2>Assign a volunteer:</h2>
+<form action="/volunteers/<%= @volunteer.id %>/edit" method="post">
+  <div class="form-group">
+    <input name="_method" type="hidden" value="patch">
+      <select name="proj_title">
+        <% if @projects.any? %>
+          <% @projects.each do |project| %>
+            <option name="proj_title" value="<%= project.id %>"><%= project.title %></option>
+          <% end %>
+        <% else %>
+          <option disabled>No Projects</option>
+        <% end %>
+      </select>
+      <button>Assign <%= @volunteer.name %> to this project</button>
+  </div>
+</form>
+
+<form action="/volunteers/<%= @volunteer.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit">Delete Volunteer</button>
+</form>

@@ -1,0 +1,13 @@
+<h1><%= @volunteer.name %><h1>
+<a href="/volunteers/<%= @volunteer.id %>/edit">Edit volunteer</a>
+
+<h2><%= @volunteer.name %>'s current project:</h2>
+
+<% if @project == nil %>
+  <p><%= @volunteer.name %> is not currently assigned to any projects.</p>
+<% else %>
+  <p><a href="/projects/<%= @project.id %>"><%= @project.title %></a></p>
+<% end %>
+
+<h3><a href="/volunteers">Return to list of volunteers</h3>
+<h4><a href="/projects">Return to list of projects</h4>

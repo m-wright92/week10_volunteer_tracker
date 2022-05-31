@@ -1,9 +1,9 @@
 <h1><%= @project.title %><h1>
 <a href="/projects/<%= @project.id %>/edit">Edit Project</a>
 
-<h3>A list of all volunteers working on this project:</h3>
+<h2>A list of all volunteers working on this project:</h2>
 
-<% if @project.volunteers %>
+<% if @project.volunteers.any? %>
   <ul>
     <% @project.volunteers.each do |volunteer| %>
       <li><%= volunteer.name %></li>
@@ -13,18 +13,8 @@
   <p>You have not assigned anyone to this project yet</p>
 <% end %>
 
-<h4>Assign a volunteer:</h4>
-  <div class="form-group">
-      <select name="volunteer_name">
-        <% if @volunteers.any? %>
-          <% @volunteers.each do |volunteer| %>
-            <option><%= volunteer.name %></option>
-          <% end %>
-        <% else %>
-          <option disabled>No Volunteers</option>
-        <% end %>
-      </select>
-  </div>
+<br>
 
-<a href="/projects">Return to list of projects</a>
+<h3><a href="/projects">Return to list of projects</h3>
 
+<h4><a href="/volunteers">Return to list of volunteers</h4>

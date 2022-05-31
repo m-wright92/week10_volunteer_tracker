@@ -35,7 +35,7 @@ class Volunteer
   end
 
   def delete
-    DB.exec("DELETE FROM volunteers WHERE id = #{@id}")
+    DB.exec("DELETE FROM volunteers WHERE id = #{@id};")
   end
 
   def self.find(id)
