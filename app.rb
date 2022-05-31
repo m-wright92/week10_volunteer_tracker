@@ -84,7 +84,6 @@ end
 
 get '/volunteers/:id/edit' do
   @volunteer = Volunteer.find(params[:id].to_i)
-  # binding.pry
   @projects = Project.all
   erb :edit_volunteer
 end
@@ -92,7 +91,6 @@ end
 delete '/volunteers/:id' do
   @volunteer = Volunteer.find(params[:id].to_i)
   @volunteer.delete
-  
   redirect to '/volunteers' 
 end
 
