@@ -21,8 +21,10 @@ end
 #the .split .map added to title capitalizes the first letter in each word of the title
 post '/projects' do
   title = params[:project_title]
-  project = Project.new({:title => title.split(/ |\_/).map(&:capitalize).join(" "), :id => nil})
-  project.save
+  if title.count('a-z') > 0
+    project = Project.new({:title => title.split(/ |\_/).map(&:capitalize).join(" "), :id => nil})
+    project.save
+  end
   redirect to '/projects'
 end
 
@@ -66,8 +68,10 @@ end
 
 post '/volunteers/new' do
   name = params[:volunteer_name]
-  volunteer = Volunteer.new({:name => name.capitalize, :project_id => 0, :id => nil})
-  volunteer.save
+  if name.count('a-z') > 0
+    volunteer = Volunteer.new({:name => name.capitalize, :project_id => 0, :id => nil})
+    volunteer.save
+  end
   @volunteers = Volunteer.all
   erb :volunteers
 end
