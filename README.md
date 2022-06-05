@@ -20,7 +20,9 @@
 ## Setup/Installation Requirements
 
 * Clone this repo
-* Make a copy of the provided database which is the database_backup.sql in the root directory
+* Run `createdb volunteer_tracker`
+* Run `psql volunteer_tracker < database_backup.sql`
+* Run `createdb -T volunteer_tracker` volunteer_tracker_test
 * Run `bundle` in your terminal from within the root directory of this project
 * To check all passing test specs, run `rspec` in the terminal, this will test all files in the 'spec' directory.
 * Run `ruby app.rb` in the terminal from the root directory
@@ -29,7 +31,7 @@
 
 ## Known Bugs
 
-* Currently unable to add volunteers to project, will update soon
+* No known bugs at this time
 
 ## License 
 
