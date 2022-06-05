@@ -22,7 +22,7 @@
 * Clone this repo
 * Run `createdb volunteer_tracker`
 * Run `psql volunteer_tracker < database_backup.sql`
-* Run `createdb -T volunteer_tracker` volunteer_tracker_test
+* Run `createdb -T volunteer_tracker volunteer_tracker_test`
 * Run `bundle` in your terminal from within the root directory of this project
 * To check all passing test specs, run `rspec` in the terminal, this will test all files in the 'spec' directory.
 * Run `ruby app.rb` in the terminal from the root directory
